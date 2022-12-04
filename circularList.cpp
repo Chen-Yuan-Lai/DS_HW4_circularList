@@ -6,14 +6,15 @@ template <class T>
 cirChain<T>::cirChain(T e)
 {
     cirNode *head = new cirNode(e);
-    head->next = head;
     first = last = head;
+    last->next = first;
 }
 
 template <class T>
 cirChain<T>::~cirChain()
 {
     cirNode *cur = first;
+    last->next = 0;
     while (cur != 0)
     {
         cirNode *temp = cur;
